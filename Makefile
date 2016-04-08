@@ -20,7 +20,7 @@ install:libcargs.so cargs.h
 	cp libcargs.so /usr/local/lib/
 	cp cargs.h /usr/local/include/
 
-commit:
+commit:clean indent
 	git commit -m "commit for timestamp `date +%s`" -a
 	git push origin master
 
