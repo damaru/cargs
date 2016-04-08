@@ -21,7 +21,7 @@ int main(int argc, char** argv)
 		printf("-c option not provided\n");
 	}
 
-	if (cargs_arg(&argc, &argv, "-n")) {
+	if (cargs_flag(&argc, &argv, "-n")) {
 		printf("-n flag provided\n");
 	} else {
 		printf("-n flag not provided\n");

@@ -18,7 +18,7 @@ typedef struct {
 } CargDesc;
 
 int cargs_argv(int* argc, char*** argv, const char* optname, char* optval, size_t len);
-int cargs_arg(int* argc, char*** argv, const char* optname);
+int cargs_flag(int* argc, char*** argv, const char* optname);
 void carg_process(int *argc, char ***argv, CargDesc *args);
 
 #endif

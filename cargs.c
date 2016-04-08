@@ -30,7 +30,7 @@ int cargs_argv(int* argc, char*** argv, const char* optname, char* value, size_t
 }
 
 /* process a flag */
-int cargs_arg(int* argc, char*** argv, const char* optname)
+int cargs_flag(int* argc, char*** argv, const char* optname)
 {
 	int i;
 
@@ -56,7 +56,7 @@ void carg_process(int *argc, char ***argv, CargDesc *args) {
 				args[i].flag = cargs_argv(argc, argv, args[i].optname, args[i].value, sizeof(args[i].value));
 				break;
 			case CargFlag:
-				args[i].flag = cargs_arg(argc, argv, args[i].optname);
+				args[i].flag = cargs_flag(argc, argv, args[i].optname);
 				break;
 		}
 	}
