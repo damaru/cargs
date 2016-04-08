@@ -6,19 +6,21 @@
 #include <stdio.h>
 
 typedef enum {
-	CargFlag,
-	CargVal,
-} CargType;
+	CargsFlag,
+	CargsVal,
+} CargsType;
 
 typedef struct {
-	const char* optname;
-	CargType type;
-	char value[1024];
-	bool flag;
-} CargDesc;
+	const char* opt_name;
+	CargsType opt_type;
+	char opt_val[1024];
+	bool opt_flag;
+} CargsDesc;
 
-int cargs_argv(int* argc, char*** argv, const char* optname, char* optval, size_t len);
-int cargs_flag(int* argc, char*** argv, const char* optname);
-void carg_process(int* argc, char*** argv, CargDesc* args);
+int cargs_argv(int* argc, char*** argv, const char* opt_name, char* opt_val, size_t len);
+int cargs_flag(int* argc, char*** argv, const char* opt_name);
+void cargs_process(int* argc, char*** argv, CargsDesc* args);
+
+#define CARGS_GET(desc, index, var) var = (((desc)[index].opt_flag ? (desc)[index].opt_val : NULL))
 
 #endif

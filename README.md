@@ -21,20 +21,21 @@ Obtain flags using `cargs_flag`:
 Bulk processing using `carg_process`:
 
 	CargDesc args[6] = {
-	   { "-a", CargVal, "aval" },
-	   { "-b", CargVal, "bval" },
-	   { "-c", CargVal, "cval" },
-	   { "-d", CargVal, "dval" },
-	   { "-v", CargFlag },
+	   { "-a", CargsVal, "aval" },
+	   { "-b", CargsVal, "bval" },
+	   { "-c", CargsVal, "cval" },
+	   { "-d", CargsVal, "dval" },
+	   { "-v", CargsFlag },
 	   { NULL }
 	};
 	
-	carg_process(&argc, &argv, args);
+	cargs_process(&argc, &argv, args);
 	
 	for (i = 0; args[i].optname; i++) {
-	   printf("option: %s value: %s %s\n", args[i].optname, args[i].value, args[i].flag?"was set":"");
+		printf("option: %s opt_val: %s %s\n", args[i].opt_name, args[i].opt_val, args[i].opt_flag ? "was set" : "");
 	}
 
 Note that if the specified option is found in the argv list, it is removed
-from the list. 
+from the list. Only the string values are returned. It is the responsibility
+of the client to convert strings to apropriate C types.
 

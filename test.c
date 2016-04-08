@@ -1,12 +1,12 @@
 #include "cargs.h"
 #include <stdio.h>
 
-CargDesc args[6] = {
-	{ "-a", CargVal, "aval" },
-	{ "-b", CargVal, "bval" },
-	{ "-c", CargVal, "cval" },
-	{ "-d", CargVal, "dval" },
-	{ "-v", CargFlag },
+CargsDesc args[6] = {
+	{ "-a", CargsVal, "aval" },
+	{ "-b", CargsVal, "bval" },
+	{ "-c", CargsVal, "cval" },
+	{ "-d", CargsVal, "dval" },
+	{ "-v", CargsFlag },
 	{ NULL }
 };
 
@@ -16,7 +16,7 @@ int main(int argc, char** argv)
 	int i;
 
 	if (cargs_argv(&argc, &argv, "-c", val, 1024)) {
-		printf("-c option provided and value is %s\n", val);
+		printf("-c option provided and opt_val is %s\n", val);
 	} else {
 		printf("-c option not provided\n");
 	}
@@ -27,10 +27,10 @@ int main(int argc, char** argv)
 		printf("-n flag not provided\n");
 	}
 
-	carg_process(&argc, &argv, args);
+	cargs_process(&argc, &argv, args);
 
-	for (i = 0; args[i].optname; i++) {
-		printf("option: %s value: %s %s\n", args[i].optname, args[i].value, args[i].flag ? "was set" : "");
+	for (i = 0; args[i].opt_name; i++) {
+		printf("option: %s opt_val: %s %s\n", args[i].opt_name, args[i].opt_val, args[i].opt_flag ? "was set" : "");
 	}
 
 	printf("remaining args:\n");
