@@ -2,7 +2,7 @@
 minimal commandline arguments processing
 
 
-Obtain argument values using <pre> cargs_argv </pre>:
+Obtain argument values using  `cargs_argv`:
 
 	if (cargs_argv(&argc, &argv, "-c", val, 1024)) {
 		printf("-c option provided and value is %s\n", val);
@@ -10,7 +10,7 @@ Obtain argument values using <pre> cargs_argv </pre>:
 		printf("-c option not provided\n");
 	}
 
-Obtain flags using <pre> cargs_flag </pre>:
+Obtain flags using `cargs_flag`:
 
 	if (cargs_flag(&argc, &argv, "-n")) {
 		printf("-n flag provided\n");
@@ -18,7 +18,7 @@ Obtain flags using <pre> cargs_flag </pre>:
 		printf("-n flag not provided\n");
 	}
 
-Bulk processing using <pre> carg_process </pre> :
+Bulk processing using `carg_process`:
 
 	CargDesc args[6] = {
 	   { "-a", CargVal, "aval" },
