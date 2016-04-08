@@ -1,6 +1,6 @@
 # cargs
-minimal commandline arguments processing
 
+`cargs` is a minimal commandline arguments processing library. 
 
 Obtain argument values using  `cargs_argv`:
 
@@ -34,4 +34,7 @@ Bulk processing using `carg_process`:
 	for (i = 0; args[i].optname; i++) {
 	   printf("option: %s value: %s %s\n", args[i].optname, args[i].value, args[i].flag?"was set":"");
 	}
+
+Note that if the specified option is found in the argv list, it is removed
+from the list. 
 
