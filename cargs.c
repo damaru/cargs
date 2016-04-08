@@ -12,7 +12,7 @@ int cargs_argv(int* argc, char*** argv, const char* optname, char* value, size_t
 			if ((*argv)[i + 1] != NULL) {
 				/* option flag and value provided */
 				strncpy(value, (*argv)[i + 1], len);
-				value[len-1] = '\0'; //null terminate
+				value[len - 1] = '\0'; //null terminate
 				for (; (*argv)[i + 2]; i++) {
 					(*argv)[i] = (*argv)[i + 2];
 				}
@@ -47,7 +47,8 @@ int cargs_flag(int* argc, char*** argv, const char* optname)
 	return false;
 }
 
-void carg_process(int *argc, char ***argv, CargDesc *args) {
+void carg_process(int* argc, char*** argv, CargDesc* args)
+{
 	int i;
 
 	for (i = 0; args[i].optname; i++) {
@@ -61,5 +62,3 @@ void carg_process(int *argc, char ***argv, CargDesc *args) {
 		}
 	}
 }
-
-

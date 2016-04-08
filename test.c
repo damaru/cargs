@@ -30,7 +30,7 @@ int main(int argc, char** argv)
 	carg_process(&argc, &argv, args);
 
 	for (i = 0; args[i].optname; i++) {
-		printf("option: %s value: %s %s\n", args[i].optname, args[i].value, args[i].flag?"was set":"");
+		printf("option: %s value: %s %s\n", args[i].optname, args[i].value, args[i].flag ? "was set" : "");
 	}
 
 	printf("remaining args:\n");
