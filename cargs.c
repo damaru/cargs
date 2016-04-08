@@ -17,12 +17,13 @@ int cargs_argv(int* argc, char*** argv, const char* opt_name, char* opt_val, siz
 					(*argv)[i] = (*argv)[i + 2];
 				}
 				*argc -= 2;
-				return 1;
+				return true;
 			} else {
+				fprintf(stderr, "error: option %s expects a value\n", opt_name);
 				/* option flag provided, but opt_val not provided */
 				*opt_val = '\0';
 				*argc -= 1;
-				return true;
+				return false;
 			}
 		}
 	}
