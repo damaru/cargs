@@ -13,6 +13,8 @@ int cargs_argv(int* argc, char*** argv, const char* opt_name, char* opt_val, siz
 				/* option flag and opt_val provided */
 				strncpy(opt_val, (*argv)[i + 1], len);
 				opt_val[len - 1] = '\0'; //null terminate
+				(*argv)[i] = NULL;
+				(*argv)[i+1] = NULL;
 				for (; (*argv)[i + 2]; i++) {
 					(*argv)[i] = (*argv)[i + 2];
 				}
