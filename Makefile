@@ -1,8 +1,12 @@
 
-all:libcargs.so test
+all:libcargs.a libcargs.so test
 
 libcargs.so: cargs.o 
 	gcc -shared -o libcargs.so cargs.o
+
+libcargs.a: cargs.o 
+	ar rs $@ $^
+	ranlib $@
 
 cargs.o: cargs.c cargs.h
 	gcc -c -Wall -Werror -fpic cargs.c 
